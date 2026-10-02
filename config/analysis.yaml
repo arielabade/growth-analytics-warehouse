@@ -1,0 +1,31 @@
+# Analysis assumptions. EVERYTHING here is an explicit, invented scenario assumption for a SYNTHETIC business.
+unit_economics:
+  gross_margin: 0.80
+  maturity_days: 90                 # a paid-CAC cohort counts only after its 90-day window is complete
+  target_ltv_cac: 3.0
+  target_payback_months: 12
+  sensitivity_churn_multipliers: [0.75, 1.0, 1.25]
+  sensitivity_cac_multipliers: [0.8, 1.0, 1.2]
+
+limits:
+  guardrail_max_pct_users_affected: 0.20     # do not recommend a limit that blocks more than 20% of active free users
+  scenarios:                                  # assumption-driven monetisation layer (not measured)
+    low:  {conv_max: 0.04, loss_prob: 0.15, free_user_value_eur: 4.0}
+    base: {conv_max: 0.10, loss_prob: 0.08, free_user_value_eur: 3.0}
+    high: {conv_max: 0.20, loss_prob: 0.04, free_user_value_eur: 2.0}
+  # conv_max      : conversion probability for a user whose usage would be 100% blocked (scaled by share blocked)
+  # loss_prob     : probability an affected user stops using the product (activation / retention loss)
+  # free_user_value_eur : MRR-equivalent value lost when a free user leaves (future upgrade + referral value)
+
+propensity:
+  test_snapshots: 3                 # the most recent labelled month-end snapshots form the hold-out
+  calibration_snapshots: 2          # last training snapshots held out for calibration + threshold choice
+  conversion_value_eur: 150         # gross-margin value of one new paying customer (assumption)
+  nudge_relative_lift: 0.30         # an in-app upgrade nudge raises conversion probability by 30% (assumption)
+  contact_cost_eur: 0.40            # cost of contacting one user (assumption)
+  seed: 7
+
+kpi_targets:                        # used for status colours on the monitoring page
+  ltv_cac: {ok: 3.0, warn: 2.0}
+  cost_per_signup_max_eur: 14.0
+  logo_churn_max: 0.08

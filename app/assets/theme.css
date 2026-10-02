@@ -1,0 +1,72 @@
+/* ABADE visual identity: Carbon / Ivory / Cobalt, Lato. Keep in sync with app/theme.py.
+   PROVISIONAL (not in the brand book): --ok, --warn, --alert and the tint/shade variables. */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
+:root {
+  --carbon: #050505;
+  --ivory: #F6F5F0;
+  --graphite: #1B1C1F;
+  --steel: #7E8791;
+  --cobalt: #5B6CFF;
+  --aurum: #C8B680;
+  --cobalt-dark: #2E3AA8;
+  --ok: #1F7A4D;
+  --warn: #9A5B00;
+  --alert: #B3261E;
+  --rule: rgba(5, 5, 5, 0.12);
+}
+
+html, body { margin: 0; background: var(--ivory); color: var(--carbon); font-family: Lato, "Helvetica Neue", Arial, sans-serif; }
+body { line-height: 1.5; }
+a { color: var(--cobalt-dark); }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 2px; }
+
+.app-header { display: flex; align-items: center; gap: 14px; padding: 14px 32px; background: var(--carbon); color: var(--ivory); }
+.app-header img { height: 34px; width: 34px; }
+.app-header .brand { font-weight: 900; letter-spacing: .02em; font-size: 18px; }
+.app-header .tag { margin-left: auto; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--aurum); border: 1px solid var(--aurum); padding: 3px 8px; }
+
+.nav { display: flex; flex-wrap: wrap; gap: 4px 20px; padding: 10px 32px; border-bottom: 1px solid var(--rule); background: var(--ivory); }
+.nav .group { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--steel); align-self: center; margin-right: 4px; }
+.nav a { text-decoration: none; color: var(--graphite); padding: 6px 2px; border-bottom: 2px solid transparent; font-weight: 400; font-size: 14px; }
+.nav a:hover { border-bottom-color: var(--cobalt); }
+.nav a.active { border-bottom-color: var(--cobalt); font-weight: 700; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 16px 28px; padding: 14px 32px; align-items: flex-end; border-bottom: 1px solid var(--rule); }
+.filters label { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--steel); margin-bottom: 4px; }
+
+.page { padding: 20px 32px 8px; max-width: 1440px; }
+.page h1 { font-weight: 900; font-size: 28px; letter-spacing: -.01em; margin: 6px 0 4px; }
+.page h2 { font-weight: 700; font-size: 18px; margin: 28px 0 8px; }
+.page p.lead { color: var(--graphite); max-width: 860px; margin: 0 0 12px; }
+.eyebrow { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--cobalt-dark); font-weight: 700; }
+.note { font-size: 13px; color: #4A5159; max-width: 900px; }
+.assumption { border-left: 3px solid var(--aurum); padding: 6px 12px; background: rgba(200, 182, 128, .14); font-size: 13px; max-width: 900px; }
+
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 12px 0; }
+.kpi { border: 1px solid var(--rule); padding: 12px 14px; background: #fff; border-top: 3px solid var(--steel); }
+.kpi .v { font-size: 26px; font-weight: 900; }
+.kpi .l { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--steel); }
+.kpi .s { font-size: 12px; color: #4A5159; }
+.kpi.ok { border-top-color: var(--ok); } .kpi.warn { border-top-color: var(--warn); } .kpi.alert { border-top-color: var(--alert); }
+.badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 2px 8px; color: #fff; }
+.badge.ok, .badge.pass { background: var(--ok); } .badge.warn { background: var(--warn); } .badge.alert, .badge.fail { background: var(--alert); } .badge.na { background: var(--steel); }
+
+table.tbl { border-collapse: collapse; width: 100%; font-size: 13px; background: #fff; }
+table.tbl th { text-align: left; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--steel); border-bottom: 2px solid var(--carbon); padding: 6px 8px; }
+table.tbl td { border-bottom: 1px solid var(--rule); padding: 6px 8px; vertical-align: top; }
+pre.sql { background: var(--carbon); color: var(--ivory); padding: 14px; overflow-x: auto; font-size: 12px; line-height: 1.45; max-height: 520px; }
+details { border: 1px solid var(--rule); background: #fff; margin: 8px 0; padding: 8px 12px; }
+summary { cursor: pointer; font-weight: 700; }
+
+.footer { padding: 18px 32px 28px; font-size: 12px; color: #4A5159; border-top: 1px solid var(--rule); margin-top: 32px; }
+.footer strong { color: var(--carbon); }
+
+/* dash dropdown / slider tuning */
+.Select-control, .Select-menu-outer { border-radius: 0 !important; }
+.rc-slider-track { background-color: var(--cobalt) !important; }
+.rc-slider-handle { border-color: var(--cobalt) !important; }
+
+@media (max-width: 720px) {
+  .app-header, .nav, .filters, .page, .footer { padding-left: 16px; padding-right: 16px; }
+}
