@@ -1,0 +1,12 @@
+# Render blueprint (free web service). SYNTHETIC demo: the image builds its own data.
+services:
+  - type: web
+    name: growth-analytics-warehouse
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: GAW_PROFILE
+        value: demo
+      - key: PORT
+        value: "10000"

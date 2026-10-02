@@ -6,14 +6,13 @@ Usage: python scripts/make_brand_assets.py
 """
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
 from fontTools.pens.boundsPen import BoundsPen
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 from fontTools.ttLib import TTFont
-
-import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app import theme as T  # noqa: E402
@@ -40,7 +39,7 @@ def text_path(font_file: str, text: str, size: float, x: float, y: float, tracki
 
 def symbol_svg(size: int = 128) -> str:
     font = TTFont(FONT_DIR / "Lato-Black.ttf")
-    gs, upm = font.getGlyphSet(), font["head"].unitsPerEm
+    gs = font.getGlyphSet()
     name = font.getBestCmap()[ord("A")]
     bp = BoundsPen(gs)
     gs[name].draw(bp)

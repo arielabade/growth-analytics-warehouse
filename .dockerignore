@@ -1,0 +1,6 @@
+.git
+data/raw
+data/warehouse
+__pycache__
+.pytest_cache
+.ruff_cache

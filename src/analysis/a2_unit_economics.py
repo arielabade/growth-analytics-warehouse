@@ -4,7 +4,6 @@ SYNTHETIC data. LTV = ARPU x gross margin / monthly churn. Paid CAC = spend / pa
 """
 from __future__ import annotations
 
-import numpy as np
 import pandas as pd
 
 from . import stats

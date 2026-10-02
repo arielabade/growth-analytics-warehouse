@@ -12,7 +12,6 @@ Model for a candidate limit L and each affected free user i (usage above the lim
 """
 from __future__ import annotations
 
-import numpy as np
 import pandas as pd
 
 from .common import analysis_cfg, q

@@ -8,6 +8,7 @@ as_of_date: "2026-06-30"    # all rolling windows are relative to this date, nev
 
 profiles:                   # `GAW_PROFILE=small` is used by CI for a fast end-to-end run
   default: {spend_scale: 1.0, organic_scale: 1.0}
+  demo:    {spend_scale: 0.35, organic_scale: 0.35}   # used by the Docker image / hosted demo
   small:   {spend_scale: 0.08, organic_scale: 0.08}
 
 plans:                      # name, tier, list price in EUR/month at price_index 1.0
