@@ -25,6 +25,19 @@ small group of power users consumes most of the volume. Leadership wants to know
 ## Key results
 
 <!-- RESULTS:START -->
+*All figures below come from the synthetic run (`make all`) and describe a fictional company.*
+
+| Question | Result (synthetic) |
+|---|---|
+| Paid acquisition | EUR 373,051 spend, 37,436 signups, blended cost per signup EUR 9.97 |
+| BR vs MX | signup rate p = 0.40; cost per signup gap EUR -0.88 (bootstrap 95% CI -1.88 to +0.07) |
+| Paid CAC vs signup cost | blended paid CAC EUR 295 is ~30x the cost per signup; they are different metrics |
+| Unit economics | blended LTV/CAC 2.35x, payback 7.5 months; only US at or above 3x (best US 5.3x, worst AR 0.3x) |
+| Usage concentration | 29.8% of active users produce 80% of volume (30d); 7.4% produce 50% |
+| Free-limit recommendation | monthly limit of 50 assets, affecting 17.6% of active free users; expected incremental MRR EUR -1,517 / +1,520 / +4,726 (low / base / high) - **assumption-driven** |
+| Upgrade propensity | hold-out PR-AUC 0.105 vs base rate 0.006; top-decile lift 6.8x; profit-optimal threshold contacts 21.1% of users |
+
+Details: [docs/RESULTS.md](docs/RESULTS.md) and [docs/MODEL_CARD.md](docs/MODEL_CARD.md).
 <!-- RESULTS:END -->
 
 ## Architecture

@@ -4,7 +4,7 @@
 # no source-company/person terms. Extra private terms can be supplied via LEAK_EXTRA_TERMS (regex, never committed).
 cd "$(dirname "$0")/.." || exit 2
 TERMS='profiling|barbara|axiom|mydrive|/content/drive|drive\.google|colab\.research|c[oó]pia_de|dadosfunil|paretodeuso|/home/[a-z]+/'
-EMAIL='[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+\.[A-Za-z.]+'
+EMAIL='[A-Za-z0-9][A-Za-z0-9._%+-]*@[A-Za-z0-9-]+\.[A-Za-z.]+'
 OKMAIL='@example\.test$'
 tmp=$(mktemp)
 files=$(git ls-files -co --exclude-standard | grep -v '^scripts/leak_scan.sh$')
