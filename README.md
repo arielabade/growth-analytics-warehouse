@@ -134,6 +134,7 @@ python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt pytest ruff        # add: nbformat nbclient ipykernel kaleido==0.2.1 playwright for notebook/images
 make all            # generate data -> pipeline -> model -> analysis -> docs   (~4 minutes)
 make test           # unit + SQL sanity tests
+# CI: copy ci/github-actions-ci.yml to .github/workflows/ci.yml (lint, tests, small end-to-end run, leak scan)
 make app            # dashboard at http://localhost:8050
 make notebook       # re-execute notebooks/analysis.ipynb
 GAW_PROFILE=small make all   # ~10x smaller, used by CI
