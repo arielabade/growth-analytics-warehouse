@@ -23,27 +23,27 @@ limited-budget upgrade nudge can be aimed at the users most likely to respond.
 | model | valid PR-AUC | test PR-AUC | test ROC-AUC | test Brier |
 |---|---|---|---|---|
 | logistic_regression | 0.1083 | 0.1046 | 0.8966 | 0.0058 |
-| gradient_boosting | 0.1142 | 0.1075 | 0.9065 | 0.0058 |
-| gradient_boosting_calibrated | 0.1124 | 0.0921 | 0.9043 | 0.0058 |
+| gradient_boosting | 0.1080 | 0.1019 | 0.9050 | 0.0058 |
+| gradient_boosting_calibrated | 0.1049 | 0.0863 | 0.9020 | 0.0058 |
 
-Selected by validation PR-AUC of the uncalibrated candidates: **gradient_boosting_calibrated** (isotonic calibration fitted on the validation fold).
-Hold-out: PR-AUC 0.092 (base rate 0.006), ROC-AUC 0.904, Brier 0.0058. Top-decile lift 6.8x.
+Selected by validation PR-AUC of the uncalibrated candidates: **logistic_regression** (isotonic calibration fitted on the validation fold).
+Hold-out: PR-AUC 0.105 (base rate 0.006), ROC-AUC 0.897, Brier 0.0058. Top-decile lift 6.8x.
 
 ## Decision threshold: expected profit, not accuracy
 Contacting a user costs EUR 0.4, a nudge lifts conversion probability by 30% (relative), and a new paying customer is worth EUR 150
-(all assumptions in `config/analysis.yaml`). Break-even precision is 0.89%. The threshold (0.0146) maximises expected profit on the validation fold;
-on the hold-out it contacts 11,422 of 78,843 users and earns EUR 12,396
+(all assumptions in `config/analysis.yaml`). Break-even precision is 0.89%. The threshold (0.0063) maximises expected profit on the validation fold;
+on the hold-out it contacts 16,641 of 78,843 users and earns EUR 11,569
 (contacting everyone: EUR -9,667).
 
 ## Top features (permutation importance, drop in PR-AUC)
 | feature | pr_auc_drop |
 |---|---|
-| tenure_days | 0.0724 |
-| trend_log_ratio | 0.0696 |
-| days_since_last_use | 0.0285 |
-| country_code | 0.0282 |
-| assets_30d | 0.0272 |
-| active_days_30d | 0.0190 |
+| trend_log_ratio | 0.1087 |
+| tenure_days | 0.0987 |
+| assets_30d | 0.0919 |
+| avg_assets_per_active_day | 0.0368 |
+| max_daily_assets_30d | 0.0303 |
+| assets_prev30d | 0.0209 |
 
 ## Outputs
 `fact_user_scores` holds the score and decile of every scored user at the as-of snapshot (`upgrade_propensity_30d`, version `v1`); the serialized model is written to `models/` (git-ignored).

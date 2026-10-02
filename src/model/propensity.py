@@ -61,7 +61,7 @@ def make_models(seed: int) -> dict[str, Pipeline]:
     return {
         "logistic_regression": Pipeline([("prep", _preprocessor()), ("clf", LogisticRegression(max_iter=1000, C=1.0))]),
         "gradient_boosting": Pipeline([("prep", _preprocessor()), ("clf", HistGradientBoostingClassifier(
-            max_depth=4, learning_rate=0.06, max_iter=250, l2_regularization=1.0, random_state=seed))]),
+            max_depth=4, learning_rate=0.06, max_iter=250, l2_regularization=1.0, early_stopping=False, random_state=seed))]),
     }
 
 

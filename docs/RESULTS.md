@@ -113,18 +113,18 @@ Share of paid subscriptions still active 180 days after upgrade (Kaplan-Meier, a
 
 ## A6. Upgrade-propensity model
 
-Selected: `gradient_boosting_calibrated`. Hold-out PR-AUC 0.092 vs base rate 0.006 (14.9x), ROC-AUC 0.904. Top-decile lift 6.8x; top two deciles capture 84.4% of converters. Contacting users above the profit-optimal threshold (14.5% of users) yields EUR 12,396 expected profit vs EUR -9,667 for contacting everyone (assumptions in config/analysis.yaml).
+Selected: `logistic_regression`. Hold-out PR-AUC 0.105 vs base rate 0.006 (17.0x), ROC-AUC 0.897. Top-decile lift 6.8x; top two deciles capture 82.1% of converters. Contacting users above the profit-optimal threshold (21.1% of users) yields EUR 11,569 expected profit vs EUR -9,667 for contacting everyone (assumptions in config/analysis.yaml).
 
 | decile | users | converters | avg_score | conversion_rate | lift | cum_capture |
 |---|---|---|---|---|---|---|
-| 1.00 | 7,885 | 332 | 0.0450 | 4.211% | 6.83 | 68.3% |
-| 2.00 | 7,884 | 78 | 0.0108 | 0.989% | 1.60 | 84.4% |
-| 3.00 | 7,884 | 39 | 0.0043 | 0.495% | 0.80 | 92.4% |
-| 4.00 | 7,884 | 17 | 0.0021 | 0.216% | 0.35 | 95.9% |
-| 5.00 | 7,884 | 13 | 0.0011 | 0.165% | 0.27 | 98.6% |
-| 6.00 | 7,885 | 3 | 0.0006 | 0.038% | 0.06 | 99.2% |
-| 7.00 | 7,884 | 2 | 0.0000 | 0.025% | 0.04 | 99.6% |
-| 8.00 | 7,884 | 1 | 0.0000 | 0.013% | 0.02 | 99.8% |
-| 9.00 | 7,884 | 1 | 0.0000 | 0.013% | 0.02 | 100.0% |
+| 1.00 | 7,885 | 332 | 0.0428 | 4.211% | 6.83 | 68.3% |
+| 2.00 | 7,884 | 67 | 0.0103 | 0.850% | 1.38 | 82.1% |
+| 3.00 | 7,884 | 37 | 0.0049 | 0.469% | 0.76 | 89.7% |
+| 4.00 | 7,884 | 19 | 0.0027 | 0.241% | 0.39 | 93.6% |
+| 5.00 | 7,884 | 13 | 0.0015 | 0.165% | 0.27 | 96.3% |
+| 6.00 | 7,885 | 8 | 0.0009 | 0.101% | 0.16 | 97.9% |
+| 7.00 | 7,884 | 8 | 0.0005 | 0.101% | 0.16 | 99.6% |
+| 8.00 | 7,884 | 2 | 0.0003 | 0.025% | 0.04 | 100.0% |
+| 9.00 | 7,884 | 0 | 0.0001 | 0.000% | 0.00 | 100.0% |
 | 10.00 | 7,885 | 0 | 0.0000 | 0.000% | 0.00 | 100.0% |
 
