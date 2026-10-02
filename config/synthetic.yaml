@@ -1,0 +1,72 @@
+# SYNTHETIC DATA CONFIG. Every number below is an invented, round, generic parameter.
+# Nothing here is derived from any real company or dataset.
+seed: 20260630
+company: Vaultly            # fictional freemium B2B SaaS with an asset library
+currency: EUR
+start_date: "2025-01-01"
+as_of_date: "2026-06-30"    # all rolling windows are relative to this date, never "today"
+
+profiles:                   # `GAW_PROFILE=small` is used by CI for a fast end-to-end run
+  default: {spend_scale: 1.0, organic_scale: 1.0}
+  small:   {spend_scale: 0.08, organic_scale: 0.08}
+
+plans:                      # name, tier, list price in EUR/month at price_index 1.0
+  - {name: free,    tier: free, price: 0}
+  - {name: starter, tier: paid, price: 20}
+  - {name: pro,     tier: paid, price: 50}
+  - {name: team,    tier: paid, price: 120}
+gross_margin: 0.80
+
+channels:
+  - {name: Meta Ads,   source: paid_social}
+  - {name: Google Ads, source: paid_search}
+
+campaigns:                  # name, channel, budget share, relative CTR / signup-rate quality, launch month offset
+  - {name: Always On Prospecting, channel: Meta Ads,   share: 0.40, ctr_mult: 1.00, signup_mult: 1.00, start: 0}
+  - {name: Lookalike Expansion,   channel: Meta Ads,   share: 0.20, ctr_mult: 0.90, signup_mult: 1.10, start: 3}
+  - {name: Retargeting,           channel: Meta Ads,   share: 0.10, ctr_mult: 1.40, signup_mult: 1.60, start: 2}
+  - {name: Brand Search,          channel: Google Ads, share: 0.10, ctr_mult: 3.00, signup_mult: 1.80, start: 0}
+  - {name: Generic Search,        channel: Google Ads, share: 0.20, ctr_mult: 1.50, signup_mult: 0.90, start: 1}
+
+countries:                  # monthly base budget (EUR) and unit economics per country
+  BR: {name: Brazil,   region: LATAM,        budget: 4500, cpm: 5.0,  ctr: 0.014, lpv_rate: 0.78, signup_rate: 0.060, upgrade: 0.050, price_index: 0.55, churn: 0.075, organic: 420, freq: 1.5}
+  MX: {name: Mexico,   region: LATAM,        budget: 3200, cpm: 5.5,  ctr: 0.014, lpv_rate: 0.77, signup_rate: 0.058, upgrade: 0.055, price_index: 0.60, churn: 0.070, organic: 300, freq: 1.5}
+  CO: {name: Colombia, region: LATAM,        budget: 1400, cpm: 4.5,  ctr: 0.013, lpv_rate: 0.74, signup_rate: 0.055, upgrade: 0.045, price_index: 0.50, churn: 0.085, organic: 130, freq: 1.4}
+  PE: {name: Peru,     region: LATAM,        budget: 900,  cpm: 4.2,  ctr: 0.013, lpv_rate: 0.72, signup_rate: 0.050, upgrade: 0.040, price_index: 0.50, churn: 0.090, organic: 80,  freq: 1.4}
+  US: {name: United States, region: North America, budget: 5000, cpm: 12.0, ctr: 0.009, lpv_rate: 0.82, signup_rate: 0.075, upgrade: 0.100, price_index: 1.15, churn: 0.035, organic: 380, freq: 1.8}
+  ES: {name: Spain,    region: Europe,       budget: 1300, cpm: 8.0,  ctr: 0.010, lpv_rate: 0.80, signup_rate: 0.065, upgrade: 0.075, price_index: 1.00, churn: 0.045, organic: 110, freq: 1.7}
+  DE: {name: Germany,  region: Europe,       budget: 1300, cpm: 10.0, ctr: 0.009, lpv_rate: 0.82, signup_rate: 0.060, upgrade: 0.085, price_index: 1.10, churn: 0.040, organic: 120, freq: 1.7}
+  AR: {name: Argentina, region: LATAM,       budget: 500,  cpm: 3.5,  ctr: 0.015, lpv_rate: 0.70, signup_rate: 0.040, upgrade: 0.030, price_index: 0.35, churn: 0.110, organic: 60,  freq: 1.4}
+
+growth:
+  budget_monthly_growth: 0.02     # compound monthly growth of ad budgets
+  organic_monthly_growth: 0.015
+  budget_noise_sd: 0.15
+  seasonality_amplitude: 0.08
+
+users:
+  paid_upgrade_multiplier: 0.75   # paid-source signups convert a bit worse than organic
+  organic_upgrade_multiplier: 1.15
+  referral_share_of_organic: 0.25
+  alias_duplicate_rate: 0.015     # share of people who also created a "+alias" account
+  power_user_rate: 0.015
+  power_user_usage_multiplier: 12.0
+  power_user_upgrade_multiplier: 1.3
+  engagement_upgrade_beta: 0.8    # upgrade propensity grows with latent engagement
+  free_dormancy_monthly: 0.18     # monthly hazard that a free user stops using the product
+  engagement_dormancy_beta: 0.5
+  usage_median_assets: 3.0        # median assets inserted on an active day (normal users)
+  usage_sigma: 0.9
+  active_day_prob_mean: 0.22
+  pre_upgrade_surge: 1.6          # usage multiplier during the 30 days before an upgrade
+  paid_usage_multiplier: 1.3
+  upgrade_delay_min_days: 7
+  upgrade_delay_mean_days: 35
+  downgrade_rate: 0.10
+  plan_mix_by_engagement: {starter: 0.55, pro: 0.35, team: 0.10}
+
+messiness:                      # how dirty the raw exports are
+  blank_row_rate: 0.01
+  exact_duplicate_rate: 0.006
+  mixed_case_rate: 0.35
+  string_number_rate: 1.0

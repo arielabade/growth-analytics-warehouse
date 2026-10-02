@@ -1,0 +1,34 @@
+[project]
+name = "growth-analytics-warehouse"
+version = "0.1.0"
+description = "SYNTHETIC end-to-end growth analytics platform: generator, pipeline, DuckDB snowflake warehouse, analysis and Dash app."
+requires-python = ">=3.10"
+dependencies = [
+  "duckdb>=1.0",
+  "pandas>=2.0",
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "scikit-learn>=1.2",
+  "pyyaml>=6",
+  "joblib>=1.2",
+  "plotly>=5.18",
+  "dash>=2.14",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.4", "nbformat", "nbclient", "ipykernel", "kaleido==0.2.1", "playwright"]
+
+[tool.setuptools.packages.find]
+include = ["src*", "app*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+ignore = ["E501"]

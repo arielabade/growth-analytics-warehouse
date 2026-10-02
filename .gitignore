@@ -1,0 +1,14 @@
+data/raw/
+data/warehouse/
+*.duckdb
+*.duckdb.wal
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.egg-info/
+.venv/
+.env
+models/*.joblib
+reports/*.json
+!data/sample/
