@@ -1,9 +1,4 @@
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/brand/header-dark.svg">
-    <img alt="Growth Analytics Warehouse: synthetic end-to-end growth analytics platform" src="assets/brand/header-light.svg" width="100%">
-  </picture>
-</p>
+<p align="center"><img alt="Growth Analytics Warehouse: synthetic end-to-end growth analytics platform" src="assets/brand/header.svg" width="100%"></p>
 
 <p align="center">
   <img alt="Method stage: scale" src="https://img.shields.io/badge/stage-scale-5B6CFF?style=flat-square&labelColor=050505">
@@ -18,19 +13,9 @@
 **A signup costs EUR 9.97. A paying customer costs EUR 295.** Treating the two as the same metric is how
 paid media looks profitable in countries where it is not. Only the US clears 3x LTV/CAC.
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/brand/kpis-dark.svg">
-    <img alt="Blended LTV/CAC 2.35x; 29.8% of users produce 80% of volume; upgrade model top-decile lift 6.8x" src="assets/brand/kpis-light.svg" width="100%">
-  </picture>
-</p>
+<p align="center"><img alt="Blended LTV/CAC 2.35x; 29.8% of users produce 80% of volume; upgrade model top-decile lift 6.8x" src="assets/brand/kpis.svg" width="100%"></p>
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/brand/arc-dark.svg">
-    <img alt="Context, problem, strategy and result of the case" src="assets/brand/arc-light.svg" width="100%">
-  </picture>
-</p>
+<p align="center"><img alt="Context, problem, strategy and result of the case" src="assets/brand/arc.svg" width="100%"></p>
 
 ---
 
@@ -110,12 +95,7 @@ catalogued in [docs/QUERIES.md](docs/QUERIES.md).
 
 ## 04 — Result
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/brand/chart-dark.svg">
-    <img alt="LTV/CAC by country: US 5.28x clears 3x; AR 0.34x is below break-even" src="assets/brand/chart-light.svg" width="100%">
-  </picture>
-</p>
+<p align="center"><img alt="LTV/CAC by country: US 5.28x clears 3x; AR 0.34x is below break-even" src="assets/brand/chart.svg" width="100%"></p>
 
 <!-- RESULTS:START -->
 *All figures below come from the synthetic run (`make all`) and describe a fictional company.*
@@ -191,12 +171,7 @@ scripts/     notebook build, mermaid render, screenshots, leak scan
 
 ---
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/brand/track-dark.svg">
-    <img alt="ABADE method: validate, scale, retain, build. This repository: scale" src="assets/brand/track-light.svg" width="100%">
-  </picture>
-</p>
+<p align="center"><img alt="ABADE method: validate, scale, retain, build. This repository: scale" src="assets/brand/track.svg" width="100%"></p>
 
 <p align="center">
   <a href="https://github.com/arielabade">Portfolio</a> &nbsp;·&nbsp;
