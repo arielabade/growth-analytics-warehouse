@@ -1,0 +1,50 @@
+{
+  "spend_eur": 373050.68999999994,
+  "signups": 37436,
+  "cost_per_signup": 9.965025376642803,
+  "paid_cac": 294.59084337349395,
+  "ltv_cac_blended": 2.3505845816025666,
+  "payback_months": 7.536481380692789,
+  "countries_ge_3x": [
+    "US"
+  ],
+  "best_country": "US",
+  "best_ltv_cac": 5.279094502720431,
+  "worst_country": "AR",
+  "worst_ltv_cac": 0.3407490784873208,
+  "br_mx_signup_rate_p": 0.3993004648876126,
+  "br_mx_ctr_p": 2.1317385896502117e-06,
+  "br_mx_ctr_ci": [
+    -0.0017268482818785919,
+    0.0011418627742217156
+  ],
+  "br_mx_cps_diff": -0.8822344869170191,
+  "br_mx_cps_ci": [
+    -1.8836323460561255,
+    0.06815837950059343
+  ],
+  "pct_users_80_30d": 0.298417078686137,
+  "pct_users_80_90d": 0.2743523619739773,
+  "pct_users_50_30d": 0.07427848683454065,
+  "active_users_30d": 26091,
+  "tail_volume_share_30d": 0.5482087129334601,
+  "rec_type": "monthly",
+  "rec_value": 50.0,
+  "rec_pct_affected": 0.17582784218867295,
+  "rec_mrr": {
+    "low": -1516.8658764230647,
+    "base": 1519.995308942338,
+    "high": 4726.390617884676
+  },
+  "rec_robust": false,
+  "paid_surv_180": 0.7087217434821821,
+  "model": "logistic_regression",
+  "model_pr_auc": 0.10464891559274435,
+  "model_base_rate": 0.00616414900498459,
+  "model_roc_auc": 0.8966400668755137,
+  "model_top_decile_lift": 6.830669265756985,
+  "model_top2_capture": 0.8209876543209876,
+  "model_profit": 11569.4,
+  "model_profit_all": -9667.2,
+  "model_contacted_share": 0.21103966109863906
+}

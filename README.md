@@ -5,7 +5,10 @@
   <img alt="DuckDB, SQL and Plotly Dash" src="https://img.shields.io/badge/DuckDB-SQL_·_Dash-7E8791?style=flat-square&labelColor=050505">
   <img alt="Data-quality checks: 68" src="https://img.shields.io/badge/quality_checks-68-7E8791?style=flat-square&labelColor=050505">
   <img alt="Data: synthetic" src="https://img.shields.io/badge/data-SYNTHETIC-C8B680?style=flat-square&labelColor=050505">
+  <a href="https://github.com/arielabade/growth-analytics-warehouse/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/arielabade/growth-analytics-warehouse/actions/workflows/ci.yml/badge.svg"></a>
 </p>
+
+<p align="center"><b><a href="https://arielabade.github.io/growth-analytics-warehouse/dashboard/">Open the dashboard →</a></b>&nbsp; no install, no clone</p>
 
 > **Everything in this repository is SYNTHETIC.** The company ("Vaultly"), its users, ad spend and
 > results come from a seeded simulator with invented, round parameters. No real-world impact is claimed.
@@ -14,6 +17,11 @@
 paid media looks profitable in countries where it is not. Only the US clears 3x LTV/CAC.
 
 <p align="center"><img alt="Blended LTV/CAC 2.35x; 29.8% of users produce 80% of volume; upgrade model top-decile lift 6.8x" src="assets/brand/kpis.svg" width="100%"></p>
+
+<p align="center">
+  <a href="https://arielabade.github.io/growth-analytics-warehouse/dashboard/"><img alt="The dashboard: acquisition, unit economics, usage, retention and the upgrade-propensity model, as interactive charts" src="docs/img/dash_kpis.png" width="100%"></a>
+</p>
+<p align="center"><sub><a href="https://arielabade.github.io/growth-analytics-warehouse/dashboard/">The live version</a> is a static export of this repository's own analysis code — same charts, same brand template, no server. The Limits simulator stays in the Dash app, because its sliders recompute against the warehouse.</sub></p>
 
 <p align="center"><img alt="Context, problem, strategy and result of the case" src="assets/brand/arc.svg" width="100%"></p>
 
@@ -79,6 +87,21 @@ flowchart LR
 
 <p align="center"><img src="docs/img/schema.png" width="85%" alt="Warehouse schema"></p>
 
+```mermaid
+flowchart LR
+  G["src.generate<br/>seeded synthetic exports"] --> R["raw<br/>1.57M rows"]
+  R --> S["staging<br/>typed, deduplicated"]
+  S --> C["core<br/>snowflake dimensions + facts"]
+  C --> M["marts<br/>funnel, unit economics, retention"]
+  M --> A["src.analysis<br/>A1–A6"]
+  M --> MO["src.model<br/>upgrade propensity"]
+  MO --> A
+  A --> D["docs/RESULTS.md<br/>docs/img/*.png"]
+  A --> P["docs/dashboard<br/>GitHub Pages"]
+  A --> APP["Dash app<br/>live simulator"]
+  S -.->|"68 data-quality checks"| X(["fail the run"])
+```
+
 | | Question | Method highlights |
 | --- | --- | --- |
 | A1 | Funnel and cost by country and month | ratio-of-sums; z-test **and** clustered bootstrap CIs; Holm correction |
@@ -95,7 +118,7 @@ catalogued in [docs/QUERIES.md](docs/QUERIES.md).
 
 ## 04 — Result
 
-<p align="center"><img alt="LTV/CAC by country: US 5.28x clears 3x; AR 0.34x is below break-even" src="assets/brand/chart.svg" width="100%"></p>
+<p align="center"><img alt="LTV/CAC by country: US 5.28x clears 3x; AR 0.34x is below break-even" src="docs/img/ltv_cac.png" width="100%"></p>
 
 <!-- RESULTS:START -->
 *All figures below come from the synthetic run (`make all`) and describe a fictional company.*
