@@ -5,7 +5,6 @@
   <img alt="DuckDB, SQL and Plotly Dash" src="https://img.shields.io/badge/DuckDB-SQL_·_Dash-7E8791?style=flat-square&labelColor=050505">
   <img alt="Data-quality checks: 68" src="https://img.shields.io/badge/quality_checks-68-7E8791?style=flat-square&labelColor=050505">
   <img alt="Data: synthetic" src="https://img.shields.io/badge/data-SYNTHETIC-C8B680?style=flat-square&labelColor=050505">
-  <a href="https://github.com/arielabade/growth-analytics-warehouse/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/arielabade/growth-analytics-warehouse/actions/workflows/ci.yml/badge.svg"></a>
 </p>
 
 <p align="center"><b><a href="https://arielabade.github.io/growth-analytics-warehouse/dashboard/">Open the dashboard →</a></b>&nbsp; no install, no clone</p>
